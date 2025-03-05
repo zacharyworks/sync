@@ -2,13 +2,17 @@ package persistance
 
 import "github.com/zacharyworks/sync/packages/dir"
 
-// Persistence is a
+// Persistence is a simple implementation of FileState which records, in memory
+// the state of a directory
+// todo: implications of storing []byte of file, if the DIR contained large files
 type Persistence map[string]dir.File
 
-func New() Persistence {
+func New() dir.FileState {
 	return make(Persistence)
 }
 
+// Update accepts a list of files in a directory, and detects ongoing changes by comparing
+// the latest state of a DIR vs the known state
 func (p Persistence) Update(latest []dir.File) []dir.FileChange {
 	var changes []dir.FileChange
 
@@ -36,7 +40,7 @@ func (p Persistence) Update(latest []dir.File) []dir.FileChange {
 		}
 		// otherwise we should check if the current file is older than the new file, then UPDATED
 		if existingFile.LastUpdated.Before(latestPoll[latestFile.Name].LastUpdated) {
-			changes = append(changes, dir.FileChange{F: existingFile, Modification: dir.Update})
+			changes = append(changes, dir.FileChange{F: latestFile, Modification: dir.Update})
 			p[latestFile.Name] = latestFile
 		}
 	}
