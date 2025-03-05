@@ -9,6 +9,8 @@ mkdir -p test/from
 mkdir -p test/to
 go run server/cmd/main.go test/to
 go run client/cmd/main.go test/from
+
+Then add some files to directory `test/to` and check they appear in `test/from`
 ```
 
 ## Notes
