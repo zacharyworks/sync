@@ -1,7 +1,7 @@
 package persistance
 
 import (
-	"github.com/zacharyworks/sync/packages/dir"
+	"github.com/zacharyworks/sync/internal/dir"
 	"testing"
 	"time"
 )

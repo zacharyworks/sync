@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/zacharyworks/sync/packages/dir"
+	"github.com/zacharyworks/sync/internal/dir"
 	"io"
 	"log"
 	"net/http"

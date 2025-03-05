@@ -1,6 +1,6 @@
 package persistance
 
-import "github.com/zacharyworks/sync/packages/dir"
+import "github.com/zacharyworks/sync/internal/dir"
 
 // Persistence is a simple implementation of FileState which records, in memory
 // the state of a directory

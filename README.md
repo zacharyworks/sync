@@ -7,8 +7,8 @@ An example of running both, from this directory:
 ```bash
 mkdir -p test/from
 mkdir -p test/to
-go run server/cmd/main.go test/to
-go run client/cmd/main.go test/from
+go run cmd/server/main.go test/to
+go run cmd/client/main.go test/from
 
 Then add some files to directory `test/to` and check they appear in `test/from`
 ```
@@ -29,3 +29,4 @@ The current setup has some caveats:
   - We could ignore the first read of the directory, and only monitor further changes
 - The post mechanism isn't very sophisticated, it's not been tested for very large files.
 - The in-memory cache currently stores file contents, this isn't scalable. Probably better to read the file contents at time of posting
+- Parsing command line args is nonexistence
