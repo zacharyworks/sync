@@ -5,8 +5,10 @@ The client monitors a directory for changes, and posts them to an HTTP server wh
 
 An example of running both, from this directory:
 ```bash
-go run server/cmd/main.go /Users/zacharybriggs/sync/to
-go run client/cmd/main.go /Users/zacharybriggs/sync/from
+mkdir -p test/from
+mkdir -p test/to
+go run server/cmd/main.go test/to
+go run client/cmd/main.go test/from
 ```
 
 ## Notes
